@@ -1,0 +1,48 @@
+{
+  "node_modules/qr-scanner/qr-scanner-worker.min.js": {
+    "file": "assets/qr-scanner-worker.min-D85Z9gVD.js",
+    "name": "qr-scanner-worker.min",
+    "src": "node_modules/qr-scanner/qr-scanner-worker.min.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/qr-scanner/qr-scanner-worker.min.js?url": {
+    "file": "assets/qr-scanner-worker.min-BgSFuc28.js",
+    "name": "qr-scanner-worker.min",
+    "src": "node_modules/qr-scanner/qr-scanner-worker.min.js?url",
+    "isDynamicEntry": true,
+    "assets": [
+      "assets/qr-scanner-worker.min-PJMWJc5V.js"
+    ]
+  },
+  "node_modules/qr-scanner/qr-scanner.min.js": {
+    "file": "assets/qr-scanner.min-BknWZfBY.js",
+    "name": "qr-scanner.min",
+    "src": "node_modules/qr-scanner/qr-scanner.min.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "dynamicImports": [
+      "node_modules/qr-scanner/qr-scanner-worker.min.js"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DewY-rQS.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DDey3lWQ.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "node_modules/qr-scanner/qr-scanner.min.js",
+      "node_modules/qr-scanner/qr-scanner-worker.min.js?url"
+    ]
+  }
+}
