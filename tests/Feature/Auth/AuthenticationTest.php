@@ -4,6 +4,7 @@ namespace Tests\Feature\Auth;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
@@ -56,6 +57,27 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->assertGuest();
+    }
+
+    public function test_users_with_legacy_non_bcrypt_hashes_can_authenticate_and_are_rehashed(): void
+    {
+        $user = User::factory()->create();
+
+        DB::table('users')->where('id', $user->id)->update([
+            'password' => password_hash('password', PASSWORD_ARGON2ID),
+        ]);
+
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->assertAuthenticated();
+        $response->assertRedirect(route('dashboard', absolute: false));
+
+        $user->refresh();
+
+        $this->assertStringStartsWith('$2y$', $user->password);
     }
 
     public function test_users_can_logout(): void
