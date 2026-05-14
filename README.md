@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Government Beneficiary Management System
 
 Modern and secure admin-only platform for managing citizen and beneficiary records, QR-enabled identification cards, barangay analytics, reports, and audit activity.
@@ -98,3 +99,6 @@ php artisan migrate:fresh --seed
 - File uploads are stored on the `public` disk. Run `php artisan storage:link` before using photo and document uploads.
 - Backup restore is restricted to super admins.
 - Delete actions are restricted to super admins.
+=======
+# beneficiary-system
+>>>>>>> 88c193e13d97d1d294c93b555ca1f6693e55a1a8
